@@ -29,13 +29,6 @@ describe('Config.setBaseUrl() setBaseUrl method', () => {
             expect((config as any).baseUrl).toBeNull();
         });
 
-        it('should set baseUrl to undefined when passed undefined', () => {
-            // This test ensures that setBaseUrl sets baseUrl to undefined when passed undefined.
-            const config = new Config({ baseUrl: 'https://example.com', headers: null });
-            config.setBaseUrl(undefined as any);
-            // @ts-ignore: Accessing private property for test purposes
-            expect((config as any).baseUrl).toBeUndefined();
-        });
     });
 
     // Edge Cases
@@ -60,42 +53,42 @@ describe('Config.setBaseUrl() setBaseUrl method', () => {
             // This test ensures that setBaseUrl throws a TypeError when passed a number.
             const config = new Config({ baseUrl: null, headers: null });
             expect(() => config.setBaseUrl(123 as any)).toThrow(TypeError);
-            expect(() => config.setBaseUrl(123 as any)).toThrow('must be string ,null');
+            expect(() => config.setBaseUrl(123 as any)).toThrow('url must be a string or null');
         });
 
         it('should throw TypeError when passed a boolean', () => {
             // This test ensures that setBaseUrl throws a TypeError when passed a boolean.
             const config = new Config({ baseUrl: null, headers: null });
             expect(() => config.setBaseUrl(true as any)).toThrow(TypeError);
-            expect(() => config.setBaseUrl(true as any)).toThrow('must be string ,null');
+            expect(() => config.setBaseUrl(true as any)).toThrow('url must be a string or null');
         });
 
         it('should throw TypeError when passed an object', () => {
             // This test ensures that setBaseUrl throws a TypeError when passed an object.
             const config = new Config({ baseUrl: null, headers: null });
             expect(() => config.setBaseUrl({} as any)).toThrow(TypeError);
-            expect(() => config.setBaseUrl({} as any)).toThrow('must be string ,null');
+            expect(() => config.setBaseUrl({} as any)).toThrow('url must be a string or null');
         });
 
         it('should throw TypeError when passed an array', () => {
             // This test ensures that setBaseUrl throws a TypeError when passed an array.
             const config = new Config({ baseUrl: null, headers: null });
             expect(() => config.setBaseUrl(['https://example.com'] as any)).toThrow(TypeError);
-            expect(() => config.setBaseUrl(['https://example.com'] as any)).toThrow('must be string ,null');
+            expect(() => config.setBaseUrl(['https://example.com'] as any)).toThrow('url must be a string or null');
         });
 
         it('should throw TypeError when passed a function', () => {
             // This test ensures that setBaseUrl throws a TypeError when passed a function.
             const config = new Config({ baseUrl: null, headers: null });
             expect(() => config.setBaseUrl((() => 'https://example.com') as any)).toThrow(TypeError);
-            expect(() => config.setBaseUrl((() => 'https://example.com') as any)).toThrow('must be string ,null');
+            expect(() => config.setBaseUrl((() => 'https://example.com') as any)).toThrow('url must be a string or null');
         });
 
         it('should throw TypeError when passed a symbol', () => {
             // This test ensures that setBaseUrl throws a TypeError when passed a symbol.
             const config = new Config({ baseUrl: null, headers: null });
             expect(() => config.setBaseUrl(Symbol('url') as any)).toThrow(TypeError);
-            expect(() => config.setBaseUrl(Symbol('url') as any)).toThrow('must be string ,null');
+            expect(() => config.setBaseUrl(Symbol('url') as any)).toThrow('url must be a string or null');
         });
     });
 });

@@ -19,22 +19,15 @@ class Config {
      * Sets the base URL for the instance. Accepts a string or null.
      * If the input is not a string or null, a TypeError is thrown.
      * 
-     * @param url - The base URL to set, which can be a string or null.
+     * @param url - The base URL to set, which can be a string .
      * @returns void
-     * @throws TypeError if the input is neither a string nor null.
+     * @throws TypeError if the input is neither a string .
      */
-    setBaseUrl(url: string | null): void {
-        if (typeof url === 'string') {
-            this.baseUrl = url;
-            return;
-        } else if (url === null) {
-            this.baseUrl = url;
-            return;
-        } else if (url === undefined) {
-            this.baseUrl = url;
-            return;
+    setBaseUrl(url: string | null ): void {        
+        if (typeof url !== 'string' && url !== null) {
+            throw new TypeError("url must be a string or null");
         } else {
-            throw new TypeError("must be string ,null");
+            this.baseUrl = url;
         }
     }
 
