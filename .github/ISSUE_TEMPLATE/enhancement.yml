@@ -1,0 +1,46 @@
+---
+name: Enhancement Request
+description: Issue to request an enhancement to API-Manager-JS.
+#type: Feature
+labels:
+  - enhancement
+title: "[Enhancement]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill in the fields below to describe your enhancement request.
+  - type: checkboxes
+    attributes:
+      label: As a
+      description: Select one or more roles that will use this feature.
+      options:
+        - label: End User
+        - label: Developer
+  - type: textarea
+    attributes:
+      label: I want to
+      description: Describe the enhancement you would like to see.
+      value: enter text here
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: So that
+      description: Describe the benefit of this enhancement.
+      value: enter text here
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Acceptance Criteria
+      description: >
+        List of requirements that must be met to accept this enhancement.
+
+        Use markdown list with checkboxes (- [ ]) so acceptance can be recorded during testing.
+      value: |
+        - [ ] Acceptance Criteria 1
+        - [ ] Acceptance Criteria 2
+        - [ ] :
+    validations:
+      required: false
