@@ -7,23 +7,23 @@
  */
 
 class Config {
-    #baseUrl: string | null;
-    #headers: Record<string, string> | null;
+    private baseUrl: string | null;
+    private headers: Record<string, string> | null;
 
     constructor({ baseUrl = null, headers = null }: { baseUrl?: string | null; headers?: Record<string, string> | null }) {
-        this.#baseUrl = baseUrl;
-        this.#headers = headers;
+        this.baseUrl = baseUrl;
+        this.headers = headers;
     }
 
     setBaseUrl(url: string | null): void {
         if (typeof url === 'string') {
-            this.#baseUrl = url;
+            this.baseUrl = url;
             return;
         } else if (url === null) {
-            this.#baseUrl = url;
+            this.baseUrl = url;
             return;
         } else if (url === undefined) {
-            this.#baseUrl = url;
+            this.baseUrl = url;
             return;
         } else {
             throw new TypeError("must be string ,null");
@@ -31,21 +31,21 @@ class Config {
     }
 
     getBaseUrl(): string | null {
-        return this.#baseUrl;
+        return this.baseUrl;
     }
 
     setHeaders(headers: Record<string, string> | null): void {
-        this.#headers = headers;
+        this.headers = headers;
     }
 
     getHeaders(): Record<string, string> | null {
-        return this.#headers;
+        return this.headers;
     }
 
     instance(): { baseUrl: string | null; headers: Record<string, string> | null } {
         return {
-            baseUrl: this.#baseUrl,
-            headers: this.#headers
+            baseUrl: this.baseUrl,
+            headers: this.headers
         };
     }
 }
