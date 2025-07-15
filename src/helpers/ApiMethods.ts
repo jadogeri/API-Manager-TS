@@ -88,7 +88,7 @@ class ApiMethods {
      * @returns A promise that resolves to the response object from the API.
      * @throws Will throw an error if the API request fails.
      */
-    static postHandler(endpoint: string, data: object, config: Config): Promise<object> {
+    static postHandler(endpoint: string, data: object | string, config: Config): Promise<object> {
         return this.apiRequest(config, 'POST', endpoint, data);        
     }
 
