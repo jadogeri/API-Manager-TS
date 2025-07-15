@@ -1,0 +1,92 @@
+import React, { useState } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import ApiManager from '@josephadogeridev/api-manager-ts';
+
+
+
+function App() {
+  const [data, setData] = useState(null);
+
+
+  // const validator= 
+  //   new Validator("n1ckSaban","n1ckSaban@alabama.co","h30nge5st@rd"); 
+    //const credential = validator.getCredential();
+
+    const apiManager = new ApiManager({baseUrl:"http://localhost:5500/api/item", headers:{
+    'Content-Type': 'application/json',
+    //'Access-Control-Allow-Origin': '*',
+
+    //"Accept":'application/json',
+    //"Access-Control-Allow-Origin": "*"  
+  //"Accept-Language": ["en-US", "en"], // Example with string array value
+    }});
+
+    
+
+      const handleGet = async()=>{
+
+        const res = await apiManager.get("/")
+        console.log(res)
+        setData(res)    
+  }
+  
+      const handlePost = async()=>{
+
+        await apiManager.post("/",{name:"slj",description:"actor", quantity:1})
+
+        const res = await apiManager.get("/")
+        console.log(res)
+        setData(res)    
+  }
+        const handlePut = async()=>{
+
+        await apiManager.put("/687595ce67d9870e8257494f",{name:"samuel l jackson",description:"a list actor"})
+
+        const res = await apiManager.get("/")
+        console.log(res)
+        setData(res)    
+  }
+
+        const handlePatch = async()=>{
+
+        await apiManager.patch("/687595ce67d9870e8257494f",{name:"eddie murphy",description:"coming to america", quantity:50})
+
+        const res = await apiManager.get("/")
+        console.log(res)
+        setData(res)    
+  }
+        const handleDelete = async()=>{
+
+        await apiManager.delete("/")
+
+        const res = await apiManager.get("/")
+        console.log(res)
+        setData(res)    
+  }
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        {/* <p>this email is {JSON.stringify(  validator.validateEmail(), null, 4)}</p>
+        <p>this username is {JSON.stringify(  validator.validateUsername(), null, 4)}</p>
+        <p>this password is {JSON.stringify(  validator.validatePassword(), null, 4)}</p>
+        <p>credential is {JSON.stringify(  credential, null, 4)}</p> */}
+        <button onClick={handlePost}>Post Data</button>
+        <p></p>
+        <button onClick={handleGet}>fetch data</button>
+              <p></p>
+        <button onClick={handleDelete}>delete data</button>
+           <p></p>
+        <button onClick={handlePut}>Put data</button>
+              <p></p>
+        <button onClick={handlePatch}>patch data</button>
+
+        <p>{JSON.stringify(data, null, 5)}</p>
+
+      </header>
+    </div>
+  );
+}
+
+export default App;
