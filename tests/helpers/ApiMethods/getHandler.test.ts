@@ -165,14 +165,14 @@ describe('ApiMethods.getHandler() getHandler method', () => {
       // This test ensures getHandler throws if endpoint is undefined.
       expect(() => {
         ApiMethods.getHandler(undefined as unknown as string, mockConfig);
-      }).toThrowError(new TypeError('endpoint or config cannot be undefined'));
+      }).toThrow(new TypeError('endpoint or config cannot be undefined'));
     });
 
     it('should throw TypeError if config is undefined', () => {
       // This test ensures getHandler throws if config is undefined.
       expect(() => {
         ApiMethods.getHandler('/endpoint', undefined as unknown as Config);
-      }).toThrowError(new TypeError('endpoint or config cannot be undefined'));
+      }).toThrow(new TypeError('endpoint or config cannot be undefined'));
     });
 
     it('should reject if fetch fails', async () => {
