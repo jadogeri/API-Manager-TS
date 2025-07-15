@@ -18,13 +18,9 @@ class ApiMethods {
 
         let baseUrl: string | null= config.getBaseUrl();
         let url: string = baseUrl + endpoint;
-        console.log("url==========", url);
-        console.log("body==========", body);
-
         let headers: Record<string, string> | null = config.getHeaders();
 
         if(body === undefined){
-            console.log("no body because is undeined")
             return new Promise((resolve, reject) => {
                 fetch(url, {
                     method: method,
@@ -36,8 +32,6 @@ class ApiMethods {
             });
 
         }else{
-                        console.log(" body because a real object")
-
             return new Promise((resolve, reject) => {
                 fetch(url, {
                     method: method,
@@ -45,7 +39,6 @@ class ApiMethods {
                     body: body as BodyInit 
                 })
                 .then(res =>{ 
-                    console.log(res)
                     return res.json()})
                 .then(resolve)
                 .catch(reject);
