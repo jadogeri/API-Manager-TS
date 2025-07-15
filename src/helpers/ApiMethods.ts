@@ -13,6 +13,7 @@ class ApiMethods {
      * @throws Will reject the promise if the fetch operation fails.
      */
     //static apiRequest(config: { getBaseUrl: () => string; getHeaders: () => Record<string, string> }, method: string, endpoint: string, body: object = {} ): Promise<object> {
+
     static apiRequest(config: Config , method: string, endpoint: string, body: undefined | object | string ): Promise<object> {
 
         let baseUrl: string | null= config.getBaseUrl();

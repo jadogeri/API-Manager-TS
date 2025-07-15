@@ -41,7 +41,7 @@ class Config {
         return this.baseUrl;
     }
 
-/**
+    /**
      * Sets the headers for the current instance.
      * @param headers - An object containing key-value pairs of headers, or null to clear headers.
      * @returns void
