@@ -68,9 +68,10 @@ class ApiMethods {
     }
 
 /**
-     * Retrieves data from the specified endpoint using the provided configuration.
-     * @param endpoint - The API endpoint to fetch data from.
-     * @param config - An object containing methods to get the base URL and headers.
+     * Sends a PUT request to the specified endpoint with the provided data and configuration.
+     * @param endpoint - The URL to which the request is sent.
+     * @param data - The data to be sent in the request body.
+     * @param config - An object containing methods to get the base URL and headers for the request.
      * @returns A promise that resolves to the response object.
      * @throws Error if the endpoint or config is undefined.
      */
@@ -78,35 +79,38 @@ class ApiMethods {
         return this.apiRequest(config, 'PUT', endpoint, data);        
     }
 
+
 /**
- * Retrieves data from the specified endpoint using a GET request.
- * @param endpoint - The API endpoint to fetch data from.
- * @param config - Configuration object for the API request.
- * @returns A promise that resolves with the response data.
- * @throws TypeError if endpoint or config is undefined.
- */
+     * Sends a POST request to the specified endpoint with the provided data.
+     * @param endpoint - The API endpoint to which the request is sent.
+     * @param data - The data object to be sent in the request body.
+     * @param config - Configuration options for the API request.
+     * @returns A promise that resolves to the response object from the API.
+     * @throws Will throw an error if the API request fails.
+     */
     static postHandler(endpoint: string, data: object, config: Config): Promise<object> {
         return this.apiRequest(config, 'POST', endpoint, data);        
     }
 
+
 /**
- * Fetches data from the specified API endpoint using the provided configuration.
- * @param endpoint - The API endpoint to fetch data from.
- * @param config - An object containing methods to get the base URL and headers.
- * @returns A promise that resolves to the response object.
- * @throws Error if the fetch operation fails or if the response is not ok.
- */
+     * Sends a PATCH request to the specified endpoint with the provided data.
+     * @param endpoint - The API endpoint to which the request is sent.
+     * @param data - The data object to be sent in the request body.
+     * @param config - Configuration options for the API request.
+     * @returns A promise that resolves to the response object.
+     * @throws Throws an error if the API request fails.
+     */
     static patchHandler(endpoint: string, data: object, config: Config): Promise<object> {
         return this.apiRequest(config, 'PATCH', endpoint, data);        
     }
 
 /**
-     * Sends a PUT request to the specified endpoint with the provided data and configuration.
-     * @param endpoint - The URL to which the request is sent.
-     * @param data - The data to be sent in the request body.
-     * @param config - An object containing methods to get the base URL and headers for the request.
+     * Sends a DELETE request to the specified endpoint using the provided configuration.
+     * @param endpoint - The API endpoint to send the DELETE request to.
+     * @param config - The configuration object containing request settings.
      * @returns A promise that resolves to the response object.
-     * @throws Error if the endpoint or config is undefined.
+     * @throws Throws an error if the API request fails.
      */
     static deleteHandler(endpoint:string , config: Config ):Promise <object>{
         return this.apiRequest(config,'DELETE',endpoint, undefined);        
