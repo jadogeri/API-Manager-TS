@@ -11,6 +11,11 @@ import ApiMethods from "../helpers/ApiMethods";
 class ApiManager {
     private config: Config;
 
+    /**
+     * constructor to create new instance of ApiManager.
+     * @param {string | null} baseUrl - The baseUrl of the configuration settings.
+     * @param {Record<string, string> | null} headers - The headers of the configuration settings.
+     */    
     constructor({ baseUrl = null, headers = null }: { baseUrl?: string | null; headers?: Record<string, string> | null }) {
         this.config = new Config({
             baseUrl: baseUrl,
@@ -79,18 +84,46 @@ class ApiManager {
         return ApiMethods.getHandler(endpoint, this.config);
     }
 
+/**
+     * Sends a PUT request to the specified endpoint with the provided data.
+     * @param endpoint - The URL of the API endpoint to send the request to.
+     * @param data - The data to be sent in the request body.
+     * @returns A promise that resolves with the response from the API.
+     * @throws Will throw an error if the request fails.
+     */
     put(endpoint: string, data: any): Promise<any> {
         return ApiMethods.putHandler(endpoint, data, this.config);
     }  
 
+/**
+     * Sends a PATCH request to the specified endpoint with the provided data.
+     * @param endpoint - The API endpoint to which the request is sent.
+     * @param data - The data to be sent in the request body.
+     * @returns A promise that resolves with the response from the API.
+     * @throws ApiError if the request fails or the response is not successful.
+     */
     patch(endpoint: string, data: any): Promise<any> {
         return ApiMethods.patchHandler(endpoint, data, this.config);
     }
 
+
+/**
+     * Sends a POST request to the specified endpoint with the provided data.
+     * @param endpoint - The API endpoint to which the request is sent.
+     * @param data - The data to be sent in the body of the request.
+     * @returns A promise that resolves with the response from the API.
+     * @throws Throws an error if the request fails or the response is not valid.
+     */
     post(endpoint: string, data: any): Promise<any> {
         return ApiMethods.postHandler(endpoint, data, this.config);   
     }
 
+/**
+     * Sends a DELETE request to the specified endpoint using the configured API methods.
+     * @param endpoint - The API endpoint to send the DELETE request to.
+     * @returns A promise that resolves with the response from the API.
+     * @throws Throws an error if the DELETE request fails.
+     */
     delete(endpoint: string): Promise<any> {
         return ApiMethods.deleteHandler(endpoint, this.config);
     }
