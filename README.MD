@@ -1,33 +1,34 @@
-# **API MANAGER JS**
+# **API MANAGER TS**
 
 **Version:** 1.0.0
 **Date:** July 15, 2025
 
 ---
 
-## Description ##
+## Description
 
 This is a typescript npm package for retreiving data from api. This module abstracts fetch api implementaion.
 
-## Authors ##
+## Authors
 
 [@jadogeri](https://www.github.com/jadogeri)
 
-## Repository ##
+## Repository
 
  [https://github.com/jadogeri/API-Manager-TS.git](https://github.com/jadogeri/API-Manager-TS.git)
 
-## Registory ##
+## Registory
 
 [https://www.npmjs.com/package/@josephadogeridev/api-manager-ts](https://www.npmjs.com/package/@josephadogeridev/api-manager-ts)
 
-## Screenshots ##
+## Screenshots
 
 | ![Screenshot 1](assets/images/screenshot1.png) | ![screenshot 2](assets/images/screenshot2.png) |
 | -------------------------------------------- | -------------------------------------------- |
 | ![Screenshot 1](assets/images/screenshot3.png) | ![screenshot 2](assets/images/screenshot4.png) |
 | -------------------------------------------- | -------------------------------------------- |
-## Table of Contents ##
+
+## Table of Contents
 
 <ul>
       <li><a href="#1-introduction">1. Introduction</a>
@@ -61,9 +62,9 @@ This is a typescript npm package for retreiving data from api. This module abstr
     <ul>
         <li><a href="#4-tests">4. Tests</a> </li>
         <ul>
-            <li><a href="#41-test-from-node_modules">4.1 Test from node_modules</a> </li>
-            <li><a href="#42-test-using-npm-link">4.2 Test using npm link</a> </li>
-            <li><a href="#43-test-using-npm-pack">4.3 Test using npm pack</a> </li>
+            <li><a href="#51-test-using-jest">4.1 Test Using Jest</a> </li>
+            <li><a href="#52-test-using-npm-link">4.2 Test Using NPM Link</a> </li>
+            <li><a href="#53-test-using-npm-pack">4.3 Test Using NPM Pack</a> </li>
         </ul>
     </ul> 
     <ul>  
@@ -75,13 +76,13 @@ This is a typescript npm package for retreiving data from api. This module abstr
         </li>
     <ul>
 
-## 1. Introduction ##
+## 1. Introduction
 
-### 1.1 Purpose ###
+### 1.1 Purpose
 
 This document outlines the package architecture, components, and design considerations for Fetching Data from an API. The goal is to create an abstraction to Fetch API implementation and perform CRUD operations.
 
-### 1.2 Scope ###
+### 1.2 Scope
 
 This package will allow users to:
 
@@ -89,14 +90,14 @@ This package will allow users to:
 - Allows headers and baseUrl to be set after initialization.
 - Abstracts Fetch API implementation..
 
-### 1.3 Intended Audience ###
+### 1.3 Intended Audience
 
 - Junior or Senior developers.
 - Beginners learning typescript.
 
 ---
 
-### 2. Technology Stack ##
+### 2. Technology Stack
 
 - **Programming Languages**: Typescript
 - **IDE**: Visual Studio Code (VSCode)
@@ -109,9 +110,9 @@ This package will allow users to:
 
 ---
 
-## 3. Usage ##
+## 3. Usage
 
-### 3.0 Install Dependency ###
+### 3.0 Install Dependency
 
 1 Type npm install @josephadogeridev/api-manager-ts to install dependencies.
 
@@ -119,92 +120,91 @@ This package will allow users to:
   npm install @josephadogeridev/api-manager-ts
 ```
 
-### 3.1 Initialization ###
+### 3.1 Initialization
 
-#### 3.1.0 API Manager Object ####
+#### 3.1.0 API Manager Object
 
-| Name        | Type   | Description                                        | Requirement              |
-| ----------- | ------ | -------------------------------------------------- | ------------------------ |
-| config     | Object | The configuration of an API request. | Required.                 |
-| getConfig    | Function | Returns config object. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| setConfig    | Function | updates the config object.. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| updateHeader    | Function | updates headers object. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| updateBaseUrl   | Function | update BaseUrl string. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| instance    | Function | Returns object instance | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| get    | Function | calls the server/backend with GET request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| put   | Function | calls the server/backend with PUT request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| patch   | Function | calls the server/backend with PATCH request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| post   | Function | calls the server/backend with POST request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| delete   | Function | calls the server/backend with DELETE request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
+| Name          | Type     | Description                                   | Requirement                                                                                           |
+| ------------- | -------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| config        | Object   | The configuration of an API request.          | Required.                                                                                             |
+| getConfig     | Function | Returns config object.                        | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| setConfig     | Function | updates the config object..                   | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| updateHeader  | Function | updates headers object.                       | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| updateBaseUrl | Function | update BaseUrl string.                        | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| instance      | Function | Returns object instance                       | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| get           | Function | calls the server/backend with GET request.    | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| put           | Function | calls the server/backend with PUT request.    | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| patch         | Function | calls the server/backend with PATCH request.  | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| post          | Function | calls the server/backend with POST request.   | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| delete        | Function | calls the server/backend with DELETE request. | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
 
-#### 3.1.1 Config Object ####
+#### 3.1.1 Config Object
 
-| Name    | Type   | Description                                | Requirement              |
-| ------- | ------ | ------------------------------------------ | ------------------------ |
-| baseUrl   | String | The baseUrl to a resource. | Required, defaults to null.                 |
-| headers | Object | Sets the headers of the API call .         | Required, defaults to null. |
+| Name    | Type   | Description                        | Requirement                 |
+| ------- | ------ | ---------------------------------- | --------------------------- |
+| baseUrl | String | The baseUrl to a resource.         | Required, defaults to null. |
+| headers | Object | Sets the headers of the API call . | Required, defaults to null. |
 
-### 3.2 Class and Methods ###
+### 3.2 Class and Methods
 
 This project includes the following core components:
 
-#### 3.2.1 `ApiManager` Class ####
+#### 3.2.1 `ApiManager` Class
 
 The `ApiManager` class represents a single ApiManager instance with its attributes and methods.
 
-*   **Attributes:**
-    *   `config` (object): The configuration of the API.
-*   **Methods:**
-    *   `constructor({ baseUrl, headers })`: The constructor method to initialize a new `ApiManager` object.
-        *   **Parameters:**
-            *   `baseUrl` (string): The base url of API request.
-            *   `headers` (object): The headers passed to API request.
-        *   **Description:** Creates a new `ApiManager` instance with the provided baseUrl and headers.
-    *   `getConfig()`: Returns a `Config` object.
-        *   **Description:** Retrieves the `Config` object.
-    *   `setConfig(config)`: Updates the config attribute.
-        *   **Parameters:**
-            *   `config` (`object` ): The new config of the ApiManager.
-        *   **Description:** updates the config of the ApiManager object.
-    *   `updateHeader(email)`: Updates the headers of the config attribute.
-        *   **Parameters:**
-            *   `headers` (`object` ): The new headers of a config object.
-        *   **Description:** updates the headers of the config object.
-    *   `updateBaseUrl(string)`: Updates the base url of the config attribute.
-        *   **Parameters:**
-            *   `baseUrl` (`string` ): The new base url of a config object.
-        *   **Description:** updates the base url of the config object.
-    *   `instance()`: Returns a ApiManager instance.
-        *   **Description:** Retrieves the ApiManager instance as a readable javascript object.
-    *   `get(endpoint)`: Sends a GET request.
-        *   **Description:** Sends a GET request to the specified endpoint with the provided data.
-        *   **Parameters:**
-            *   `endpoint` (`string` ): The endpoint of an API Request.
-    *   `put(endpoint, data)`: Sends a PUT request.
-        *   **Description:** Sends a PUT request to the specified endpoint with the provided data.
-        *   **Parameters:**
-            *   `endpoint` (`string` ): The endpoint of an API Request.
-            *   `data` (`object` ): The data to be sent in the request body.
-    *   `patch(endpoint, data)`: Sends a PATCH request.
-        *   **Description:** Sends a PATCH request to the specified endpoint with the provided data.
-        *   **Parameters:**
-            *   `endpoint` (`string` ): The endpoint of an API Request.
-            *   `data` (`object` ): The data to be sent in the request body.
-    *   `post(endpoint, data)`: Sends a POST request.
-        *   **Description:** Sends a POST request to the specified endpoint with the provided data.
-        *   **Parameters:**
-            *   `endpoint` (`string` ): The endpoint of an API Request.
-            *   `data` (`object` ): The data to be sent in the request body.
-    *   `delete(endpoint)`: Sends a DELETE request.
-        *   **Description:** Sends a DELETE request to the specified endpoint with the provided data.
-        *   **Parameters:**
-            *   `endpoint` (`string` ): The endpoint of an API Request.
-  
+* **Attributes:**
+  * `config` (object): The configuration of the API.
+* **Methods:**
+  * `constructor({ baseUrl, headers })`: The constructor method to initialize a new `ApiManager` object.
+    * **Parameters:**
+      * `baseUrl` (string): The base url of API request.
+      * `headers` (object): The headers passed to API request.
+    * **Description:** Creates a new `ApiManager` instance with the provided baseUrl and headers.
+  * `getConfig()`: Returns a `Config` object.
+    * **Description:** Retrieves the `Config` object.
+  * `setConfig(config)`: Updates the config attribute.
+    * **Parameters:**
+      * `config` (`object` ): The new config of the ApiManager.
+    * **Description:** updates the config of the ApiManager object.
+  * `updateHeader(email)`: Updates the headers of the config attribute.
+    * **Parameters:**
+      * `headers` (`object` ): The new headers of a config object.
+    * **Description:** updates the headers of the config object.
+  * `updateBaseUrl(string)`: Updates the base url of the config attribute.
+    * **Parameters:**
+      * `baseUrl` (`string` ): The new base url of a config object.
+    * **Description:** updates the base url of the config object.
+  * `instance()`: Returns a ApiManager instance.
+    * **Description:** Retrieves the ApiManager instance as a readable javascript object.
+  * `get(endpoint)`: Sends a GET request.
+    * **Description:** Sends a GET request to the specified endpoint with the provided data.
+    * **Parameters:**
+      * `endpoint` (`string` ): The endpoint of an API Request.
+  * `put(endpoint, data)`: Sends a PUT request.
+    * **Description:** Sends a PUT request to the specified endpoint with the provided data.
+    * **Parameters:**
+      * `endpoint` (`string` ): The endpoint of an API Request.
+      * `data` (`object` ): The data to be sent in the request body.
+  * `patch(endpoint, data)`: Sends a PATCH request.
+    * **Description:** Sends a PATCH request to the specified endpoint with the provided data.
+    * **Parameters:**
+      * `endpoint` (`string` ): The endpoint of an API Request.
+      * `data` (`object` ): The data to be sent in the request body.
+  * `post(endpoint, data)`: Sends a POST request.
+    * **Description:** Sends a POST request to the specified endpoint with the provided data.
+    * **Parameters:**
+      * `endpoint` (`string` ): The endpoint of an API Request.
+      * `data` (`object` ): The data to be sent in the request body.
+  * `delete(endpoint)`: Sends a DELETE request.
+    * **Description:** Sends a DELETE request to the specified endpoint with the provided data.
+    * **Parameters:**
+      * `endpoint` (`string` ): The endpoint of an API Request.
 
-### 3.3 Code Snippet ###
+### 3.3 Code Snippet
 
-Note: <b>This is a demo. Please change baseUrl, headers, endpoint and data
-to fit your usage.<b>
+Note: `<b>`This is a demo. Please change baseUrl, headers, endpoint and data
+to fit your usage.`<b>`
 
 ```typescript
 
@@ -217,7 +217,7 @@ function App() {
     baseUrl : "http://localhost:5500/api",
     headers : {
     'Content-Type': 'application/json',
-    "Accept":'application/json'       
+    "Accept":'application/json'     
     }
 
   })
@@ -266,14 +266,14 @@ function App() {
         </button>
         <button onClick={handlePost}>
           handle Post
-        </button>     
+        </button>   
   
         <button onClick={handlePatch}>
           handle Patch
-        </button>        
+        </button>      
         <button onClick={handlePut}>
           handle Put
-        </button>    
+        </button>  
             <p><i>DELETE</i></p>   
          <button onClick={handleDelete}>
           handle delete
@@ -292,134 +292,91 @@ export default App;
 
 ```
 
-## 4. Tests ##
+## 4. Tests  ##
 
-#### 4.1 Test from node_modules ####
+Note : this test was done pre publish to NPM repository.
 
-note : run test from node_modules after <a href="#3-usage">Usage</a>
+#### 4.1 Test Using Jest ####
 
-1 Navigate to cd @josephadogeridev/api-manager-ts directory using command below.
-
-```bash
-  cd node_modules/@josephadogeridev/api-manager-ts
-```
-
-2 Type npm run test to run unit tests.
+1 Inside of root directory, type npm run test to run unit tests.
 
 ```bash
   npm run test
 ```
 
-![](assets/images/jest.png)
+![](assets/images/testusingjest.png)
 
-#### 4.2 Test using NPM Link ####
 
-Note : this test was done pre publish to npm manager
+#### 4.2 Test Using NPM Link ####
 
-1 In the root of package run npm link to create symbolic link  between a local package under development and another Node.js project that wants to use it as a dependency.
+1 Run command npm run build to package app and generate  dist directory.
+
+```bash
+  npm run build
+```
+![](assets/images/testusingnpmlink0.png)
+
+2 In the root of package run npm link to create symbolic link  between a local package under development and another Node.js project that wants to use it as a dependency. 
 
 ```bash
   npm link
 ```
 
-![](assets/images/prenpmlink.png)
+![](assets/images/testusingnpmlink1.png)
 
-2 Create or use existing React Application.
 
-3 Run command npm link @josephadogeridev/api-manager-ts to install created package.
+2 Create a new react project or use an existing project (typescript).
+
+3 In the root or react project, run command npm link @josephadogeridev/Auth-Credential-Validator-TS to install node with created package.
+
 
 ```bash
-  npm link @josephadogeridev/api-manager-ts
+npm link @josephadogeridev/auth-credential-validator-ts
 ```
 
-![](assets/images/postnpmlink.png)
+![](assets/images/testusingnpmlink2.png)
 
-```javascript
+#### Example of Test Using NPM Link ####
 
-import logo from './logo.svg';
-import './App.css';
-import ApiManager from '@josephadogeridev/api-manager-ts';
-import { useState } from 'react';
+![](assets/images/testusingnpmlink3.png)
 
-function App() {
-  const [data, setData]= useState([]);
-  const baseUrl = "http://localhost:5500/api";
-  const headers = {
-    'Content-Type': 'application/json',
-    "Accept":'application/json'       
-  }
+#### 4.3 Test Using NPM Pack ####
 
-  const apiManager = new ApiManager({baseUrl:baseUrl, headers: headers});
+1 In the root of package run npm run build to generate build (./dist).
 
-  const handleGetButtonClick = async () =>{
-
-    const response = await apiManager.get("/object");
-    setData(response);    
-  }
-  return (
-
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button onClick={()=>{handleGetButtonClick()}}>
-          handle get objects
-        </button>
-        {JSON.stringify(data, null, 4)}
-      </header>
-    </div>
-  );
-}
-
-export default App;
-
+```bash
+  npm run build
 ```
 
-##### Example #####
+![](assets/images/testusingnpmpack0.png)
 
-![](assets/images/reactusage.png)
-
-#### 4.3 Test using NPM Pack ####
-
-Note : this test was done pre publish to npm manager
-
-1 In the root of package run npm pack to package the module into a zipped file (.tgz).
+2 In the root of package run npm pack to package the module into a zipped file (.tgz).
 
 ```bash
   npm pack
 ```
 
-![](assets/images/prenpmpack.png)
+![](assets/images/testusingnpmpack1.png)
 
-2 Create or use existing React Application.
+3 Create or use existing React Application (typescript).
 
-3 Copy and paste the created file in the root of a React Application.
+4 Copy and paste the created file in the root of a React Application.
 
-4 Run command npm install josephadogeridev-api-manager-ts-1.0.0.tgz to install created package.
+5 Run command npm install josephadogeridev-auth-credential-validator-ts-1.0.0.tgz to install created package.
 
 ```bash
-  npm install josephadogeridev-api-manager-ts-1.0.0.tgz
+  npm install josephadogeridev-auth-credential-validator-ts-1.0.0.tgz
 ```
 
-![](assets/images/postnpmpack.png)
+![](assets/images/testusingnpmpack2.png)
 
-## 5. License ##
+## 5. License
 
 [LICENSE](/LICENSE)
 
 ---
 
-## 6. References ##
+## 6. References
 
 * FreeCodeCamp : [Frontend Web Development: (HTML, CSS, JavaScript, TypeScript, React)](https://www.youtube.com/watch?v=MsnQ5uepIa).
 * AweSome Open Source : [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
