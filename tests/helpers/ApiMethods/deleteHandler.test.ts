@@ -140,7 +140,7 @@ describe('ApiMethods.deleteHandler() deleteHandler method', () => {
 
       expect(() =>
         ApiMethods.deleteHandler(undefined as unknown as string, config)
-      ).toThrowError(new TypeError('endpoint or config cannot be undefined'));
+      ).toThrow(new TypeError('endpoint or config cannot be undefined'));
     });
 
     test('should throw TypeError if config is undefined', () => {
@@ -149,7 +149,7 @@ describe('ApiMethods.deleteHandler() deleteHandler method', () => {
 
       expect(() =>
         ApiMethods.deleteHandler(endpoint, undefined as unknown as Config)
-      ).toThrowError(new TypeError('endpoint or config cannot be undefined'));
+      ).toThrow(new TypeError('endpoint or config cannot be undefined'));
     });
 
     test('should propagate error if apiRequest rejects', async () => {
