@@ -122,28 +122,28 @@ This package will allow users to:
 
 ### 3.1 Initialization
 
-#### 3.1.0 API Manager Object
+#### 3.1.0 API Manager Object ####
 
-| Name          | Type     | Description                                   | Requirement                                                                                           |
-| ------------- | -------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| config        | Object   | The configuration of an API request.          | Required.                                                                                             |
-| getConfig     | Function | Returns config object.                        | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
-| setConfig     | Function | updates the config object..                   | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
-| updateHeader  | Function | updates headers object.                       | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
-| updateBaseUrl | Function | update BaseUrl string.                        | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
-| instance      | Function | Returns object instance                       | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
-| get           | Function | calls the server/backend with GET request.    | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
-| put           | Function | calls the server/backend with PUT request.    | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
-| patch         | Function | calls the server/backend with PATCH request.  | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
-| post          | Function | calls the server/backend with POST request.   | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
-| delete        | Function | calls the server/backend with DELETE request. | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| Name        | Type   | Description                                        | Requirement              |
+| ----------- | ------ | -------------------------------------------------- | ------------------------ |
+| config     | Object | The configuration of an API request. | Required.                 |
+| getConfig    | Function | Returns config object. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
+| setConfig    | Function | updates the config object.. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
+| updateHeader    | Function | updates headers object. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
+| updateBaseUrl   | Function | update BaseUrl string. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
+| instance    | Function | Returns object instance | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
+| get    | Function | calls the server/backend with GET request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
+| put   | Function | calls the server/backend with PUT request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
+| patch   | Function | calls the server/backend with PATCH request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
+| post   | Function | calls the server/backend with POST request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
+| delete   | Function | calls the server/backend with DELETE request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
 
-#### 3.1.1 Config Object
+#### 3.1.1 Config Object ####
 
-| Name    | Type   | Description                        | Requirement                 |
-| ------- | ------ | ---------------------------------- | --------------------------- |
-| baseUrl | String | The baseUrl to a resource.         | Required, defaults to null. |
-| headers | Object | Sets the headers of the API call . | Required, defaults to null. |
+| Name    | Type   | Description                                | Requirement              |
+| ------- | ------ | ------------------------------------------ | ------------------------ |
+| baseUrl   | String | The baseUrl to a resource. | Required, defaults to null.                 |
+| headers | Object | Sets the headers of the API call .         | Required, defaults to null. |
 
 ### 3.2 Class and Methods
 
