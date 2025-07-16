@@ -106,6 +106,9 @@ class ApiMethods {
      * @throws Throws an error if the API request fails.
      */
     static deleteHandler(endpoint:string , config: Config ):Promise <object>{
+        if (endpoint === undefined || config === undefined) {
+            throw new TypeError("endpoint or config cannot be undefined");
+        }
         return this.apiRequest(config,'DELETE',endpoint, undefined);        
     }
 }
