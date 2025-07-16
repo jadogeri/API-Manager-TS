@@ -154,7 +154,7 @@ This project includes the following core components:
 The `ApiManager` class represents a single ApiManager instance with its attributes and methods.
 
 * **Attributes:**
-  * `config` (object): The configuration of the API.
+  * `config` (Config object): The configuration of the API.
 * **Methods:**
   * `constructor({ baseUrl, headers })`: The constructor method to initialize a new `ApiManager` object.
     * **Parameters:**
@@ -163,39 +163,40 @@ The `ApiManager` class represents a single ApiManager instance with its attribut
     * **Description:** Creates a new `ApiManager` instance with the provided baseUrl and headers.
   * `getConfig()`: Returns a `Config` object.
     * **Description:** Retrieves the `Config` object.
-  * `setConfig(config)`: Updates the config attribute.
+  * `setConfig(baseUrl : string, headers : Record<string, string>)`: Updates the config attribute.
     * **Parameters:**
-      * `config` (`object` ): The new config of the ApiManager.
+      * `baseUrl` (`string` ): The new baseUrl of the configuration object.
+      * `headers` (`Record<string, string>` ): The new headers of the configuration object.
     * **Description:** updates the config of the ApiManager object.
-  * `updateHeader(email)`: Updates the headers of the config attribute.
+  * `updateHeader(headers: Record<string, string>)`: Updates the headers of the config attribute.
     * **Parameters:**
-      * `headers` (`object` ): The new headers of a config object.
+      * `headers` (`Record<string, string>` ): The new headers of a config object.
     * **Description:** updates the headers of the config object.
-  * `updateBaseUrl(string)`: Updates the base url of the config attribute.
+  * `updateBaseUrl(baseUrl: string)`: Updates the base url of the config attribute.
     * **Parameters:**
       * `baseUrl` (`string` ): The new base url of a config object.
     * **Description:** updates the base url of the config object.
   * `instance()`: Returns a ApiManager instance.
     * **Description:** Retrieves the ApiManager instance as a readable javascript object.
-  * `get(endpoint)`: Sends a GET request.
+  * `get(endpoint: string)`: Sends a GET request.
     * **Description:** Sends a GET request to the specified endpoint with the provided data.
     * **Parameters:**
       * `endpoint` (`string` ): The endpoint of an API Request.
-  * `put(endpoint, data)`: Sends a PUT request.
+  * `put(endpoint: string, data: any)`: Sends a PUT request.
     * **Description:** Sends a PUT request to the specified endpoint with the provided data.
     * **Parameters:**
       * `endpoint` (`string` ): The endpoint of an API Request.
-      * `data` (`object` ): The data to be sent in the request body.
-  * `patch(endpoint, data)`: Sends a PATCH request.
+      * `data` (`any` ): The data to be sent in the request body.
+  * `patch(endpoint: string, data: any)`: Sends a PATCH request.
     * **Description:** Sends a PATCH request to the specified endpoint with the provided data.
     * **Parameters:**
       * `endpoint` (`string` ): The endpoint of an API Request.
-      * `data` (`object` ): The data to be sent in the request body.
-  * `post(endpoint, data)`: Sends a POST request.
+      * `data` (`any` ): The data to be sent in the request body.
+  * `post(endpoint: string, data: any)`: Sends a POST request.
     * **Description:** Sends a POST request to the specified endpoint with the provided data.
     * **Parameters:**
       * `endpoint` (`string` ): The endpoint of an API Request.
-      * `data` (`object` ): The data to be sent in the request body.
+      * `data` (`any` ): The data to be sent in the request body.
   * `delete(endpoint)`: Sends a DELETE request.
     * **Description:** Sends a DELETE request to the specified endpoint with the provided data.
     * **Parameters:**
