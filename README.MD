@@ -156,7 +156,7 @@ The `ApiManager` class represents a single ApiManager instance with its attribut
 * **Attributes:**
   * `config` (Config object): The configuration of the API.
 * **Methods:**
-  * `constructor({ baseUrl, headers })`: The constructor method to initialize a new `ApiManager` object.
+  * `constructor({ baseUrl : string, headers : Record<string, string> })`: The constructor method to initialize a new `ApiManager` object.
     * **Parameters:**
       * `baseUrl` (string): The base url of API request.
       * `headers` ( Record<string, string>): The headers passed to API request.
