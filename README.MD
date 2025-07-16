@@ -143,7 +143,7 @@ This package will allow users to:
 | Name    | Type   | Description                                | Requirement              |
 | ------- | ------ | ------------------------------------------ | ------------------------ |
 | baseUrl   | String | The baseUrl to a resource. | Required, defaults to null.                 |
-| headers | Object | Sets the headers of the API call .         | Required, defaults to null. |
+| headers | Record<string, string> | Sets the headers of the API call .         | Required, defaults to null. |
 
 ### 3.2 Class and Methods
 
@@ -159,7 +159,7 @@ The `ApiManager` class represents a single ApiManager instance with its attribut
   * `constructor({ baseUrl, headers })`: The constructor method to initialize a new `ApiManager` object.
     * **Parameters:**
       * `baseUrl` (string): The base url of API request.
-      * `headers` (object): The headers passed to API request.
+      * `headers` ( Record<string, string>): The headers passed to API request.
     * **Description:** Creates a new `ApiManager` instance with the provided baseUrl and headers.
   * `getConfig()`: Returns a `Config` object.
     * **Description:** Retrieves the `Config` object.

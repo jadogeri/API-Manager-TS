@@ -68,7 +68,7 @@ class ApiMethods {
      * @returns A promise that resolves to the response object.
      * @throws Error if the endpoint or config is undefined.
      */
-    static putHandler(endpoint: string, data: object | string, config: Config): Promise<object> {
+    static putHandler(endpoint: string, data: object | object[] | string, config: Config): Promise<object> {
         return this.apiRequest(config, 'PUT', endpoint, data);        
     }
 
@@ -81,7 +81,7 @@ class ApiMethods {
      * @returns A promise that resolves to the response object from the API.
      * @throws Will throw an error if the API request fails.
      */
-    static postHandler(endpoint: string, data: object | string, config: Config): Promise<object> {
+    static postHandler(endpoint: string, data: object | object[] | string, config: Config): Promise<object> {
         return this.apiRequest(config, 'POST', endpoint, data);        
     }
 
@@ -94,7 +94,7 @@ class ApiMethods {
      * @returns A promise that resolves to the response object.
      * @throws Throws an error if the API request fails.
      */
-    static patchHandler(endpoint: string, data: object | string, config: Config): Promise<object> {
+    static patchHandler(endpoint: string, data: object | object[] | string, config: Config): Promise<object> {
         return this.apiRequest(config, 'PATCH', endpoint, data);        
     }
 
