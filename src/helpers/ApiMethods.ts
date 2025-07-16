@@ -94,7 +94,7 @@ class ApiMethods {
      * @returns A promise that resolves to the response object.
      * @throws Throws an error if the API request fails.
      */
-    static patchHandler(endpoint: string, data: object, config: Config): Promise<object> {
+    static patchHandler(endpoint: string, data: object | string, config: Config): Promise<object> {
         return this.apiRequest(config, 'PATCH', endpoint, data);        
     }
 

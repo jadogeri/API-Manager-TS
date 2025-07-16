@@ -327,11 +327,11 @@ Note : this test was done pre publish to NPM repository.
 
 2 Create a new react project or use an existing project (typescript).
 
-3 In the root or react project, run command npm link @josephadogeridev/Auth-Credential-Validator-TS to install node with created package.
+3 In the root or react project, run command npm link @josephadogeridev/api-manager-ts to install node with created package.
 
 
 ```bash
-npm link @josephadogeridev/auth-credential-validator-ts
+npm link @josephadogeridev/api-manager-ts
 ```
 
 ![](assets/images/testusingnpmlink2.png)
@@ -362,10 +362,10 @@ npm link @josephadogeridev/auth-credential-validator-ts
 
 4 Copy and paste the created file in the root of a React Application.
 
-5 Run command npm install josephadogeridev-auth-credential-validator-ts-1.0.0.tgz to install created package.
+5 Run command npm install josephadogeridev-api-manager-ts-1.0.0.tgz to install created package.
 
 ```bash
-  npm install josephadogeridev-auth-credential-validator-ts-1.0.0.tgz
+  npm install josephadogeridev-api-manager-ts-1.0.0.tgz
 ```
 
 ![](assets/images/testusingnpmpack2.png)
