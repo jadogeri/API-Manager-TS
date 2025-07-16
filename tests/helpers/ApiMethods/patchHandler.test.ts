@@ -21,6 +21,7 @@ describe('ApiMethods.patchHandler() patchHandler method', () => {
   // =========================
   // Happy Path Tests
   // =========================
+   describe('Happy paths', () => {
 
   it('should send a PATCH request and resolve with response data (happy path)', async () => {
     // This test ensures patchHandler correctly sends a PATCH request and resolves with the expected response data.
@@ -112,9 +113,13 @@ describe('ApiMethods.patchHandler() patchHandler method', () => {
     expect(result).toEqual(responseData);
   });
 
+})
+
   // =========================
   // Edge Case Tests
   // =========================
+
+describe('Edge cases', () => {
 
   it('should handle empty object as data (edge case)', async () => {
     // This test checks that patchHandler works when data is an empty object.
@@ -253,4 +258,6 @@ describe('ApiMethods.patchHandler() patchHandler method', () => {
       }
     );
   });
+  
+})
 });
