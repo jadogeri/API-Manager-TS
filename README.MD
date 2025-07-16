@@ -204,85 +204,77 @@ The `ApiManager` class represents a single ApiManager instance with its attribut
 
 ### 3.3 Code Snippet
 
-Note: `<b>`This is a demo. Please change baseUrl, headers, endpoint and data
-to fit your usage.`<b>`
+Note: <b>This is a demo. Please change baseUrl, headers, endpoint and data
+to fit your usage.<b>
 
 ```typescript
 
+import React, { useState } from 'react';
+import logo from './logo.svg';
 import './App.css';
-import ApiManager from '@josephadogeridev/api-manager-js';
-import { useState } from 'react';
+import ApiManager from '@josephadogeridev/api-manager-ts';
+
+
+
 function App() {
+  const [data, setData] = useState(null);
 
-  const apiManager = new ApiManager({
-    baseUrl : "http://localhost:5500/api",
-    headers : {
-    'Content-Type': 'application/json',
-    "Accept":'application/json'     
-    }
+  const apiManager = 
+    new ApiManager({baseUrl:"http://localhost:5500/api/item", 
+                    headers:{'Content-Type': 'application/json',
 
-  })
+                  }});  
 
-  const [data , setData] = useState(null)
+  const handleGet = async()=>{
+
+    const res = await apiManager.get("/")
+    console.log(res)
+    setData(res)    
+  }
+
+  const handlePost = async()=>{
+
+    await apiManager.post("/",{name:"slj",description:"actor", quantity:1});
+    const res = await apiManager.get("/")
+    console.log(res)
+    setData(res)    
+  }
   
-  const handleGet = async ()=>{
-     const res = await apiManager.get("/item");
-     setData(res)
+  const handlePut = async()=>{
+
+  await apiManager.put("/replace with id",{name:"samuel l jackson",description:"a list actor"});
+  const res = await apiManager.get("/")
+  console.log(res)
+  setData(res)    
   }
 
-  const handlePost = async ()=>{
-     const res = await apiManager.post("/item",{name:"test"});
-    const fetchdata = await apiManager.get("/item");
-     setData(fetchdata)
-
-  } 
-   const handlePut = async ()=>{
-     await apiManager.put("/item/6867348dd8b181ba1f77b14a",{name:"chicken",});
-   const fetchdata = await apiManager.get("/item");
-    setData(fetchdata)
-
-  } 
-   const handlePatch = async ()=>{
-     await apiManager.patch("/item/686735b1d8b181ba1f77b150",{name:"ronaldo",description:"cr7"});
-    const fetchdata = await apiManager.get("/item");
-    setData(fetchdata)
-
-  }  
-  const handleDelete = async ()=>{
-     const res = await apiManager.delete("/item");
-     setData([])
-
+  const handlePatch = async()=>{
+    await apiManager.patch("/replace with id",{name:"eddie murphy",description:"coming to america", quantity:50})
+    const res = await apiManager.get("/")
+    console.log(res)
+    setData(res)    
   }
 
+  const handleDelete = async()=>{
+    await apiManager.delete("/")
+    const res = await apiManager.get("/")
+    console.log(res)
+    setData(res)    
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <div>
-        <p><i>GET ALL</i></p>
-        <button onClick={handleGet}>
-          handle Get
-        </button>
-        <button onClick={handlePost}>
-          handle Post
-        </button>   
-  
-        <button onClick={handlePatch}>
-          handle Patch
-        </button>      
-        <button onClick={handlePut}>
-          handle Put
-        </button>  
-            <p><i>DELETE</i></p>   
-         <button onClick={handleDelete}>
-          handle delete
-        </button>
-        </div>
-        {
-          JSON.stringify(data, null, 4)
-        }
+        <img src={logo} className="App-logo" alt="logo" />
+        <button onClick={handlePost}>Post Data</button>
+        <p></p>
+        <button onClick={handleGet}>fetch data</button>
+        <p></p>
+        <button onClick={handleDelete}>delete data</button>
+        <p></p>
+        <button onClick={handlePut}>Put data</button>
+        <p></p>
+        <button onClick={handlePatch}>patch data</button>
+        <p>{JSON.stringify(data, null, 5)}</p>
 
       </header>
     </div>
