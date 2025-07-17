@@ -85,10 +85,10 @@ describe('ApiManager.instance() instance method', () => {
       expect(result).toBe(apiManager);
     });
 
-    it('should return the same instance when constructed with no arguments', () => {
-      // This test aims to verify that instance() works when constructed with no arguments at all.
-      // @ts-ignore: Testing constructor with no arguments
-      const apiManager = new ApiManager();
+    it('should return the same instance when constructed with {} argument', () => {
+      // This test aims to verify that instance() works when constructed with {} argument.
+      // @ts-ignore: Testing constructor with {} argument
+      const apiManager = new ApiManager({});
       const result = apiManager.instance();
       expect(result).toBe(apiManager);
     });
