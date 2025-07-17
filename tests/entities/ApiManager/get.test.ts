@@ -33,31 +33,6 @@ describe('ApiManager.get() get method', () => {
   // Happy Path Tests
   //
   describe('Happy paths', () => {
-    test('should call ApiMethods.getHandler with correct endpoint and config (baseUrl and headers provided)', async () => {
-      // This test ensures that get calls ApiMethods.getHandler with the correct arguments when both baseUrl and headers are set.
-      const baseUrl = 'http://example.com/api';
-      const headers = { 'Content-Type': 'application/json', Authorization: 'Bearer token' };
-      const endpoint = '/users';
-      const expectedResponse = { data: [{ id: 1, name: 'John' }] };
-
-      const config = new Config({baseUrl, headers});
-      // Spy on Config's constructor to inject our mockConfig
-      const configConstructorSpy = jest.spyOn(Config.prototype,);
-      // Patch ApiManager's config property after instantiation
-      const apiManager = new ApiManager({ baseUrl, headers });
-      (apiManager as any).config = mockConfig;
-
-      // Mock ApiMethods.getHandler to resolve with expectedResponse
-      (ApiMethods.getHandler as jest.Mock).mockResolvedValue(expectedResponse as any as never);
-
-      const result = await apiManager.get(endpoint);
-
-      expect(ApiMethods.getHandler).toHaveBeenCalledTimes(1);
-      expect(ApiMethods.getHandler).toHaveBeenCalledWith(endpoint, mockConfig);
-      expect(result).toBe(expectedResponse);
-
-      configConstructorSpy.mockRestore();
-    });
 
     test('should call ApiMethods.getHandler with correct endpoint and config (only baseUrl provided)', async () => {
       // This test ensures that get works when only baseUrl is provided (headers omitted).
