@@ -1,4 +1,4 @@
-import Config from "./Config.js";
+import Config from "./Config";
 import ApiMethods from "../helpers/ApiMethods";
 
 /**
@@ -33,7 +33,7 @@ class ApiManager {
      * @returns {Config} The current instance of the Config.
      * @throws {None} This function does not throw any exceptions.
      */
-    getConfig = (): Config => {
+    getConfig = (): Config => {        
         return this.config;
     }
 
