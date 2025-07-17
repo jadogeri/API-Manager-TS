@@ -1,7 +1,7 @@
 
-import ApiManager from '../../../src/entities/ApiManager.js';
-import Config from "../../../src/entities/Config.js";
-import ApiMethods from "../../../src/helpers/ApiMethods.js";
+import ApiManager from '../../../src/entities/ApiManager';
+import Config from "../../../src/entities/Config";
+import ApiMethods from "../../../src/helpers/ApiMethods";
 
 
 // src/entities/ApiManager.put.spec.ts

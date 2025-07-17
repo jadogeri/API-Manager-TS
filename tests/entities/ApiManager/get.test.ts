@@ -1,7 +1,7 @@
 
-import ApiManager from '../../../src/entities/ApiManager.js';
-import Config from "../../../src/entities/Config.js";
-import ApiMethods from "../../../src/helpers/ApiMethods.js";
+import ApiManager from '../../../src/entities/ApiManager';
+import Config from "../../../src/entities/Config";
+import ApiMethods from "../../../src/helpers/ApiMethods";
 
 
 // src/entities/ApiManager.get.spec.ts
@@ -40,8 +40,9 @@ describe('ApiManager.get() get method', () => {
       const endpoint = '/users';
       const expectedResponse = { data: [{ id: 1, name: 'John' }] };
 
+      const config = new Config({baseUrl, headers});
       // Spy on Config's constructor to inject our mockConfig
-      const configConstructorSpy = jest.spyOn(Config.prototype, 'constructor');
+      const configConstructorSpy = jest.spyOn(Config.prototype,);
       // Patch ApiManager's config property after instantiation
       const apiManager = new ApiManager({ baseUrl, headers });
       (apiManager as any).config = mockConfig;

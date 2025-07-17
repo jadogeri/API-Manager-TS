@@ -1,6 +1,6 @@
 
-import ApiManager from '../../../src/entities/ApiManager.js';
-import Config from "../../../src/entities/Config.js";
+import ApiManager from '../../../src/entities/ApiManager';
+import Config from "../../../src/entities/Config";
 
 
 // src/entities/ApiManager.instance.spec.ts
