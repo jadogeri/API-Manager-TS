@@ -1,6 +1,7 @@
 
 import ApiManager from '../../../src/entities/ApiManager';
 import Config from "../../../src/entities/Config";
+import ApiMethods from "../../../src/helpers/ApiMethods";
 
 
 // src/entities/ApiManager.delete.spec.ts
@@ -17,11 +18,11 @@ jest.mock("../../../src/entities/Config", () => {
   return jest.fn().mockImplementation(() => mockConfig);
 });
 
-let mockDeleteHandler : jest.Mock<any, any, any>;
+
 jest.mock("../../../src/helpers/ApiMethods", () => ({
   __esModule: true,
   default: {
-    deleteHandler: mockDeleteHandler = jest.fn(),
+    deleteHandler:jest.fn(),
   },
 }));
 
@@ -29,6 +30,8 @@ describe('ApiManager.delete() delete method', () => {
   // Reset mocks before each test
   beforeEach(() => {
     jest.clearAllMocks();
+  // Reset mockGetHandler reference in ApiMethods
+  (ApiMethods.deleteHandler as jest.Mock).mockReset();
   });
 
   // =========================
@@ -43,7 +46,7 @@ describe('ApiManager.delete() delete method', () => {
       const expectedResponse = { success: true, deleted: 123 };
 
       // Arrange
-      mockDeleteHandler.mockResolvedValue(expectedResponse as any as never);
+      (ApiMethods.deleteHandler as jest.Mock).mockResolvedValue(expectedResponse as any as never);
 
       const apiManager = new ApiManager({ baseUrl, headers });
 
@@ -51,8 +54,8 @@ describe('ApiManager.delete() delete method', () => {
       const result = await apiManager.delete(endpoint);
 
       // Assert
-      expect(mockDeleteHandler).toHaveBeenCalledTimes(1);
-      expect(mockDeleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
+      expect(ApiMethods.deleteHandler).toHaveBeenCalledTimes(1);
+      expect(ApiMethods.deleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
       expect(result).toEqual(expectedResponse);
     });
 
@@ -63,13 +66,13 @@ describe('ApiManager.delete() delete method', () => {
       const endpoint = '/users/42';
       const expectedResponse = { status: 'deleted', id: 42 };
 
-      mockDeleteHandler.mockResolvedValue(expectedResponse as any as never);
+      (ApiMethods.deleteHandler as jest.Mock).mockResolvedValue(expectedResponse as any as never);
 
       const apiManager = new ApiManager({ baseUrl, headers });
 
       const result = await apiManager.delete(endpoint);
 
-      expect(mockDeleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
+      expect(ApiMethods.deleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
       expect(result).toEqual(expectedResponse);
     });
 
@@ -82,7 +85,7 @@ describe('ApiManager.delete() delete method', () => {
       const response1 = { deleted: 1 };
       const response2 = { deleted: 2 };
 
-      mockDeleteHandler
+      (ApiMethods.deleteHandler as jest.Mock)
         .mockResolvedValueOnce(response1 as any as never)
         .mockResolvedValueOnce(response2 as any as never);
 
@@ -91,8 +94,8 @@ describe('ApiManager.delete() delete method', () => {
       const result1 = await apiManager.delete(endpoint1);
       const result2 = await apiManager.delete(endpoint2);
 
-      expect(mockDeleteHandler).toHaveBeenNthCalledWith(1, endpoint1, mockConfig);
-      expect(mockDeleteHandler).toHaveBeenNthCalledWith(2, endpoint2, mockConfig);
+      expect(ApiMethods.deleteHandler).toHaveBeenNthCalledWith(1, endpoint1, mockConfig);
+      expect(ApiMethods.deleteHandler).toHaveBeenNthCalledWith(2, endpoint2, mockConfig);
       expect(result1).toEqual(response1);
       expect(result2).toEqual(response2);
     });
@@ -109,12 +112,12 @@ describe('ApiManager.delete() delete method', () => {
       const endpoint = '/fail-case';
       const error = new Error('Delete failed');
 
-      mockDeleteHandler.mockRejectedValue(error as never);
+      (ApiMethods.deleteHandler as jest.Mock).mockRejectedValue(error as never);
 
       const apiManager = new ApiManager({ baseUrl, headers });
 
       await expect(apiManager.delete(endpoint)).rejects.toThrow('Delete failed');
-      expect(mockDeleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
+      expect(ApiMethods.deleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
     });
 
     test('should handle empty string endpoint', async () => {
@@ -124,13 +127,13 @@ describe('ApiManager.delete() delete method', () => {
       const endpoint = '';
       const expectedResponse = { result: 'no endpoint' };
 
-      mockDeleteHandler.mockResolvedValue(expectedResponse as any as never);
+      (ApiMethods.deleteHandler as jest.Mock).mockResolvedValue(expectedResponse as any as never);
 
       const apiManager = new ApiManager({ baseUrl, headers });
 
       const result = await apiManager.delete(endpoint);
 
-      expect(mockDeleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
+      expect(ApiMethods.deleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
       expect(result).toEqual(expectedResponse);
     });
 
@@ -141,13 +144,13 @@ describe('ApiManager.delete() delete method', () => {
       const endpoint = '/weird/!@#$%^&*()_+-=';
       const expectedResponse = { deleted: true };
 
-      mockDeleteHandler.mockResolvedValue(expectedResponse as any as never);
+      (ApiMethods.deleteHandler as jest.Mock).mockResolvedValue(expectedResponse as any as never);
 
       const apiManager = new ApiManager({ baseUrl, headers });
 
       const result = await apiManager.delete(endpoint);
 
-      expect(mockDeleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
+      expect(ApiMethods.deleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
       expect(result).toEqual(expectedResponse);
     });
 
@@ -158,13 +161,13 @@ describe('ApiManager.delete() delete method', () => {
       const endpoint = '/empty-headers';
       const expectedResponse = { ok: true };
 
-      mockDeleteHandler.mockResolvedValue(expectedResponse as any as never);
+      (ApiMethods.deleteHandler as jest.Mock).mockResolvedValue(expectedResponse as any as never);
 
       const apiManager = new ApiManager({ baseUrl, headers });
 
       const result = await apiManager.delete(endpoint);
 
-      expect(mockDeleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
+      expect(ApiMethods.deleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
       expect(result).toEqual(expectedResponse);
     });
 
@@ -175,13 +178,13 @@ describe('ApiManager.delete() delete method', () => {
       const endpoint = '/empty-baseurl';
       const expectedResponse = { deleted: 'empty-baseurl' };
 
-      mockDeleteHandler.mockResolvedValue(expectedResponse as any as never);
+      (ApiMethods.deleteHandler as jest.Mock).mockResolvedValue(expectedResponse as any as never);
 
       const apiManager = new ApiManager({ baseUrl, headers });
 
       const result = await apiManager.delete(endpoint);
 
-      expect(mockDeleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
+      expect(ApiMethods.deleteHandler).toHaveBeenCalledWith(endpoint, mockConfig);
       expect(result).toEqual(expectedResponse);
     });
   });
