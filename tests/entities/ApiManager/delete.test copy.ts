@@ -17,11 +17,11 @@ jest.mock("../../../src/entities/Config", () => {
   return jest.fn().mockImplementation(() => mockConfig);
 });
 
-let mockDeleteHandler : jest.Mock<any, any, any>;
+let mockDeleteHandler = jest.fn();
 jest.mock("../../../src/helpers/ApiMethods", () => ({
   __esModule: true,
   default: {
-    deleteHandler: mockDeleteHandler = jest.fn(),
+    deleteHandler: mockDeleteHandler,
   },
 }));
 
