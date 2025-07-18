@@ -42,7 +42,7 @@ describe('ApiManager.post() post method', () => {
       const apiResponse = { success: true, id: 123 };
 
       // Spy on Config constructor to inject our mockConfig
-      const configSpy = jest.spyOn(require('./Config'), 'default').mockImplementation(() => mockConfig);
+      const configSpy = jest.spyOn(require('../../../src/entities/Config'), 'default').mockImplementation(() => mockConfig);
 
       // Set up the mock for postHandler
       mockedPostHandler.mockResolvedValue(apiResponse as any as never);
@@ -73,7 +73,7 @@ describe('ApiManager.post() post method', () => {
         { input: 42, output: { ok: true } },
       ];
 
-      const configSpy = jest.spyOn(require('./Config'), 'default').mockImplementation(() => mockConfig);
+      const configSpy = jest.spyOn(require('../../../src/entities/Config'), 'default').mockImplementation(() => mockConfig);
 
       const apiManager = new ApiManager({ baseUrl, headers });
       // @ts-ignore
