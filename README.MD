@@ -26,7 +26,7 @@ This is a typescript npm package for retreiving data from api. This module abstr
 | ![Screenshot 1](assets/images/screenshot1.png) | ![screenshot 2](assets/images/screenshot2.png) |
 | -------------------------------------------- | -------------------------------------------- |
 | ![Screenshot 1](assets/images/screenshot3.png) | ![screenshot 2](assets/images/screenshot4.png) |
-| -------------------------------------------- | -------------------------------------------- |
+|  |  |
 
 ## Table of Contents
 
