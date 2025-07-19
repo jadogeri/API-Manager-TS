@@ -47,7 +47,7 @@ describe('ApiMethods.postHandler() postHandler method', () => {
       {
         method: 'POST',
         headers,
-        body: data as any,
+        body: JSON.stringify(data) as any,
       }
     );
     expect(result).toEqual(responseData);
@@ -105,7 +105,7 @@ describe('ApiMethods.postHandler() postHandler method', () => {
       {
         method: 'POST',
         headers,
-        body: data as any,
+        body: JSON.stringify(data) as any,
       }
     );
     expect(result).toEqual(responseData);
@@ -134,7 +134,7 @@ describe('ApiMethods.postHandler() postHandler method', () => {
       {
         method: 'POST',
         headers,
-        body: data as any,
+        body: JSON.stringify(data) as any,
       }
     );
     expect(result).toEqual(responseData);
@@ -157,7 +157,7 @@ describe('ApiMethods.postHandler() postHandler method', () => {
 
     globalAny.fetch.mockRejectedValue(fetchError as never);
 
-    await expect(ApiMethods.postHandler(endpoint, data, mockConfig)).rejects.toThrow('Network error');
+    await expect(ApiMethods.postHandler(endpoint, JSON.stringify(data), mockConfig)).rejects.toThrow('Network error');
   });
 
   it('should reject if response.json throws an error', async () => {
@@ -176,7 +176,7 @@ describe('ApiMethods.postHandler() postHandler method', () => {
     };
     globalAny.fetch.mockResolvedValue(mockFetchResponse as any);
 
-    await expect(ApiMethods.postHandler(endpoint, data, mockConfig)).rejects.toThrow('Invalid JSON');
+    await expect(ApiMethods.postHandler(endpoint, JSON.stringify(data), mockConfig)).rejects.toThrow('Invalid JSON');
   });
 
   it('should handle getHeaders returning null', async () => {
@@ -202,7 +202,7 @@ describe('ApiMethods.postHandler() postHandler method', () => {
       {
         method: 'POST',
         headers,
-        body: data as any,
+        body: JSON.stringify(data) as any,
       }
     );
     expect(result).toEqual(responseData);
@@ -231,7 +231,7 @@ describe('ApiMethods.postHandler() postHandler method', () => {
       {
         method: 'POST',
         headers,
-        body: data as any,
+        body: JSON.stringify(data) as any,
       }
     );
     expect(result).toEqual(responseData);
@@ -260,7 +260,7 @@ describe('ApiMethods.postHandler() postHandler method', () => {
       {
         method: 'POST',
         headers,
-        body: data as any,
+        body: JSON.stringify(data) as any
       }
     );
     expect(result).toEqual(responseData);
