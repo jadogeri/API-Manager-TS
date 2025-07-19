@@ -128,7 +128,7 @@ describe('ApiManager.post() post method', () => {
       const data = { fail: true };
       const error = new Error('Network error');
 
-      const configSpy = jest.spyOn(require('./Config'), 'default').mockImplementation(() => mockConfig);
+      const configSpy = jest.spyOn(require('../../../src/entities/Config'), 'default').mockImplementation(() => mockConfig);
 
       mockedPostHandler.mockRejectedValue(error as never);
 
@@ -150,7 +150,7 @@ describe('ApiManager.post() post method', () => {
       const data = { test: 'empty' };
       const apiResponse = { ok: true };
 
-      const configSpy = jest.spyOn(require('./Config'), 'default').mockImplementation(() => mockConfig);
+      const configSpy = jest.spyOn(require('../../../src/entities/Config'), 'default').mockImplementation(() => mockConfig);
 
       mockedPostHandler.mockResolvedValue(apiResponse as any as never);
 
@@ -174,7 +174,7 @@ describe('ApiManager.post() post method', () => {
       const data = {};
       const apiResponse = { ok: true };
 
-      const configSpy = jest.spyOn(require('./Config'), 'default').mockImplementation(() => mockConfig);
+      const configSpy = jest.spyOn(require('../../../src/entities/Config'), 'default').mockImplementation(() => mockConfig);
 
       mockedPostHandler.mockResolvedValue(apiResponse as any as never);
 
@@ -198,7 +198,7 @@ describe('ApiManager.post() post method', () => {
       const data = { arr: Array.from({ length: 10000 }, (_, i) => i) };
       const apiResponse = { ok: true };
 
-      const configSpy = jest.spyOn(require('./Config'), 'default').mockImplementation(() => mockConfig);
+      const configSpy = jest.spyOn(require('../../../src/entities/Config'), 'default').mockImplementation(() => mockConfig);
 
       mockedPostHandler.mockResolvedValue(apiResponse as any as never);
 
@@ -222,7 +222,7 @@ describe('ApiManager.post() post method', () => {
       const data = { test: 'special' };
       const apiResponse = { ok: true };
 
-      const configSpy = jest.spyOn(require('./Config'), 'default').mockImplementation(() => mockConfig);
+      const configSpy = jest.spyOn(require('../../../src/entities/Config'), 'default').mockImplementation(() => mockConfig);
 
       mockedPostHandler.mockResolvedValue(apiResponse as any as never);
 
