@@ -10,8 +10,7 @@
   "type": "module",
   "scripts": {
     "test": "jest --coverage --testPathPatterns=tests/",
-    "build": "tsc && ts-add-js-extension --dir=dist",
-    "publish" :"npm run build && npm publish"
+    "build": "tsc && ts-add-js-extension --dir=dist"
   },
   "repository": {
     "type": "git",
