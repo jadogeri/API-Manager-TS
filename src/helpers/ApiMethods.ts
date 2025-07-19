@@ -14,7 +14,7 @@ class ApiMethods {
      */
     //static apiRequest(config: { getBaseUrl: () => string; getHeaders: () => Record<string, string> }, method: string, endpoint: string, body: object = {} ): Promise<object> {
 
-    static apiRequest(config: Config , method: string, endpoint: string, body: undefined | object | string ): Promise<object> {
+    static apiRequest(config: Config , method: string, endpoint: string, body: undefined | object | string | object[]): Promise<object> {
 
         let baseUrl: string | null= config.getBaseUrl();
         let url: string = baseUrl + endpoint;
@@ -32,11 +32,12 @@ class ApiMethods {
             });
 
         }else{
+            
             return new Promise((resolve, reject) => {
                 fetch(url, {
                     method: method,
                     headers: headers as HeadersInit,
-                    body: body as BodyInit 
+                    body: (typeof body != "string"? JSON.stringify(body) : body) as BodyInit 
                 })
                 .then(res =>{ 
                     return res.json()})
