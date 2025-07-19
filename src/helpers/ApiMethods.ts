@@ -1,5 +1,12 @@
 import Config from "../entities/Config";
 
+/**
+ * @author      Joseph Adogeri
+ * @since       19-JUL-2025
+ * @version     1.0.1
+ * @description API Methods Class
+ *  
+ */
 class ApiMethods {
 /**
      * Sends an HTTP request to a specified endpoint using the provided configuration.

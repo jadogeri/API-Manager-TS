@@ -1,6 +1,6 @@
 {
   "name": "@josephadogeridev/api-manager-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "npm module for Fetch API abstraction retrieving data from API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

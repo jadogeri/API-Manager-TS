@@ -1,6 +1,6 @@
 # **API MANAGER TS**
 
-**Version:** 1.0.0
+**Version:** 1.0.1
 **Date:** July 15, 2025
 
 ---
@@ -26,7 +26,7 @@ This is a typescript npm package for retreiving data from api. This module abstr
 | ![Screenshot 1](assets/images/screenshot1.png) | ![screenshot 2](assets/images/screenshot2.png) |
 | -------------------------------------------- | -------------------------------------------- |
 | ![Screenshot 1](assets/images/screenshot3.png) | ![screenshot 2](assets/images/screenshot4.png) |
-|  |  |
+|                                              |                                              |
 
 ## Table of Contents
 
@@ -122,28 +122,28 @@ This package will allow users to:
 
 ### 3.1 Initialization
 
-#### 3.1.0 API Manager Object ####
+#### 3.1.0 API Manager Object
 
-| Name        | Type   | Description                                        | Requirement              |
-| ----------- | ------ | -------------------------------------------------- | ------------------------ |
-| config     | Object | The configuration of an API request. | Required.                 |
-| getConfig    | Function | Returns config object. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| setConfig    | Function | updates the config object.. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| updateHeader    | Function | updates headers object. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| updateBaseUrl   | Function | update BaseUrl string. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| instance    | Function | Returns object instance | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| get    | Function | calls the server/backend with GET request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| put   | Function | calls the server/backend with PUT request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| patch   | Function | calls the server/backend with PATCH request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| post   | Function | calls the server/backend with POST request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
-| delete   | Function | calls the server/backend with DELETE request. | Required, <i>See <a href="#32-class-and-methods">Class and Methods</a> for usage</i> .            |
+| Name          | Type     | Description                                   | Requirement                                                                                           |
+| ------------- | -------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| config        | Object   | The configuration of an API request.          | Required.                                                                                             |
+| getConfig     | Function | Returns config object.                        | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| setConfig     | Function | updates the config object..                   | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| updateHeader  | Function | updates headers object.                       | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| updateBaseUrl | Function | update BaseUrl string.                        | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| instance      | Function | Returns object instance                       | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| get           | Function | calls the server/backend with GET request.    | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| put           | Function | calls the server/backend with PUT request.    | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| patch         | Function | calls the server/backend with PATCH request.  | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| post          | Function | calls the server/backend with POST request.   | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
+| delete        | Function | calls the server/backend with DELETE request. | Required,`<i>`See `<a href="#32-class-and-methods">`Class and Methods`</a>` for usage`</i>` . |
 
-#### 3.1.1 Config Object ####
+#### 3.1.1 Config Object
 
-| Name    | Type   | Description                                | Requirement              |
-| ------- | ------ | ------------------------------------------ | ------------------------ |
-| baseUrl   | String | The baseUrl to a resource. | Required, defaults to null.                 |
-| headers | Record<string, string> | Sets the headers of the API call .         | Required, defaults to null. |
+| Name    | Type                   | Description                        | Requirement                 |
+| ------- | ---------------------- | ---------------------------------- | --------------------------- |
+| baseUrl | String                 | The baseUrl to a resource.         | Required, defaults to null. |
+| headers | Record<string, string> | Sets the headers of the API call . | Required, defaults to null. |
 
 ### 3.2 Class and Methods
 
@@ -204,8 +204,8 @@ The `ApiManager` class represents a single ApiManager instance with its attribut
 
 ### 3.3 Code Snippet
 
-Note: <b>This is a demo. Please change baseUrl, headers, endpoint and data
-to fit your usage.<b>
+Note: `<b>`This is a demo. Please change baseUrl, headers, endpoint and data
+to fit your usage.`<b>`
 
 ```typescript
 
@@ -229,7 +229,7 @@ function App() {
 
     const res = await apiManager.get("/")
     console.log(res)
-    setData(res)    
+    setData(res)  
   }
 
   const handlePost = async()=>{
@@ -237,7 +237,7 @@ function App() {
     await apiManager.post("/",{name:"slj",description:"actor", quantity:1});
     const res = await apiManager.get("/")
     console.log(res)
-    setData(res)    
+    setData(res)  
   }
   
   const handlePut = async()=>{
@@ -245,21 +245,21 @@ function App() {
   await apiManager.put("/replace with id",{name:"samuel l jackson",description:"a list actor"});
   const res = await apiManager.get("/")
   console.log(res)
-  setData(res)    
+  setData(res)  
   }
 
   const handlePatch = async()=>{
     await apiManager.patch("/replace with id",{name:"eddie murphy",description:"coming to america", quantity:50})
     const res = await apiManager.get("/")
     console.log(res)
-    setData(res)    
+    setData(res)  
   }
 
   const handleDelete = async()=>{
     await apiManager.delete("/")
     const res = await apiManager.get("/")
     console.log(res)
-    setData(res)    
+    setData(res)  
   }
   return (
     <div className="App">
@@ -285,11 +285,11 @@ export default App;
 
 ```
 
-## 4. Tests  ##
+## 4. Tests
 
 Note : this test was done pre publish to NPM repository.
 
-#### 4.1 Test Using Jest ####
+#### 4.1 Test Using Jest
 
 1 Inside of root directory, type npm run test to run unit tests.
 
@@ -299,17 +299,17 @@ Note : this test was done pre publish to NPM repository.
 
 ![](assets/images/testusingjest.png)
 
-
-#### 4.2 Test Using NPM Link ####
+#### 4.2 Test Using NPM Link
 
 1 Run command npm run build to package app and generate  dist directory.
 
 ```bash
   npm run build
 ```
+
 ![](assets/images/testusingnpmlink0.png)
 
-2 In the root of package run npm link to create symbolic link  between a local package under development and another Node.js project that wants to use it as a dependency. 
+2 In the root of package run npm link to create symbolic link  between a local package under development and another Node.js project that wants to use it as a dependency.
 
 ```bash
   npm link
@@ -317,11 +317,9 @@ Note : this test was done pre publish to NPM repository.
 
 ![](assets/images/testusingnpmlink1.png)
 
-
 2 Create a new react project or use an existing project (typescript).
 
 3 In the root or react project, run command npm link @josephadogeridev/api-manager-ts to install node with created package.
-
 
 ```bash
 npm link @josephadogeridev/api-manager-ts
@@ -329,11 +327,11 @@ npm link @josephadogeridev/api-manager-ts
 
 ![](assets/images/testusingnpmlink2.png)
 
-#### Example of Test Using NPM Link ####
+#### Example of Test Using NPM Link
 
 ![](assets/images/testusingnpmlink3.png)
 
-#### 4.3 Test Using NPM Pack ####
+#### 4.3 Test Using NPM Pack
 
 1 In the root of package run npm run build to generate build (./dist).
 
