@@ -306,7 +306,7 @@ describe('ApiMethods.apiRequest() apiRequest method', () => {
         {
           method: 'POST',
           headers,
-          body,
+          body: JSON.stringify(body),
         }
       );
       expect(mockJson).toHaveBeenCalled();
