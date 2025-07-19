@@ -26,9 +26,7 @@
     "react-native",
     "electron",
     "typescript",
-    "Validator",
-    "Credential",
-    "hook",
+    "CRUD",
     "API",
     "Fetch API"
   ],
