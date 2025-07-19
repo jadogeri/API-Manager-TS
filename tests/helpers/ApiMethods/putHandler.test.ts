@@ -129,7 +129,7 @@ describe('ApiMethods.putHandler() putHandler method', () => {
         expect.objectContaining({
           method: 'PUT',
           headers,
-          body: data as any,
+          body: JSON.stringify(data) as any,
         })
       );
       expect(result).toEqual(responseData);
@@ -194,7 +194,7 @@ describe('ApiMethods.putHandler() putHandler method', () => {
         expect.objectContaining({
           method: 'PUT',
           headers,
-          body: data as any,
+          body: JSON.stringify(data) as any,
         })
       );
       expect(result).toEqual(responseData);
@@ -221,7 +221,7 @@ describe('ApiMethods.putHandler() putHandler method', () => {
         expect.objectContaining({
           method: 'PUT',
           headers: headers as any,
-          body: data as any,
+          body: JSON.stringify(data) as any,
         })
       );
       expect(result).toEqual(responseData);
