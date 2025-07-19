@@ -48,7 +48,7 @@ describe('ApiMethods.patchHandler() patchHandler method', () => {
       {
         method: 'PATCH',
         headers,
-        body: data as any,
+        body: JSON.stringify(data) as any,
       }
     );
     expect(result).toEqual(responseData);
